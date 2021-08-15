@@ -1,31 +1,91 @@
-<h1> Employee List</h1>
-<table class="table table-hover">
+<nav class="navbar navbar-light bg-primary">
+  <div class="container-fluid">
+    <h1>Angular CRUD</h1>
+    <div class="d-flex">
+      <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">Add Employee</button>
+    </div>
+  </div>
+
+</nav>
+
+<table class="table table-hover mt-3">
   <thead>
-    <th>
-      Name
-    </th>
-    <th>
-      Age
-    </th>
-    <th>
-      Address
-    </th>
-    <th>
-      Phone
-    </th>
+    <tr>
+      <th scope="col">
+        Name
+      </th>
+      <th scope="col">
+        Age
+      </th>
+      <th scope="col">
+        Address
+      </th>
+      <th scope="col">
+        Phone
+      </th>
+      <th scope="col">
+        Action
+      </th>
+    </tr>
   </thead>
-  <tr *ngFor="let item of employee">
-    <td>
-      {{item.name}}
-    </td>
-    <td>
-      {{item.age}}
-    </td>
-    <td>
-      {{item.address}}
-    </td>
-    <td>
-      {{item.phone}}
-    </td>
-  </tr>
+  <tbody>
+    <tr *ngFor="let item of employee">
+      <td>
+        {{item.name}}
+      </td>
+      <td>
+        {{item.age}}
+      </td>
+      <td>
+        {{item.address}}
+      </td>
+      <td>
+        {{item.phone}}
+      </td>
+      <td>
+        <button class="btn btn-info">Edit</button>
+        <button class="btn btn-danger mx-3">Delete</button>
+      </td>
+    </tr>
+  </tbody>
 </table>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Employee Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Name</label>
+            <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp">
+
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Age</label>
+            <input type="text" class="form-control" id="exampleInputAge">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Address</label>
+            <input type="text" class="form-control" id="exampleInputAddress">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Phone</label>
+            <input type="text" class="form-control" id="exampleInputPhone">
+          </div>
+      
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
