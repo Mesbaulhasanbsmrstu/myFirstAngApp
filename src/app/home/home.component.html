@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <h1>Angular CRUD</h1>
     <div class="d-flex">
-      <button type="button"  data-bs-toggle="modal" data-bs-target="#addEmployee" class="btn btn-success">Add Employee</button>
+      <button type="button"  class="btn btn-success" (click) = "openAddEmpleeModal()">Add Employee</button>
     </div>
   </div>
 
@@ -51,56 +51,3 @@
 </table>
 
 
-
-<!-- Modal -->
-<div  class="modal fade" id="addEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Employee Details</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="addEmployeeForm">
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Name</label>
-            <input type="text" class="form-control" formControlName="name" id="exampleInputName" aria-describedby="emailHelp">
-
-
-            <p *ngIf="getControl.name.errors && (getControl.name.dirty || getControl.name.touched)&& getControl.name.errors.required" class="text-danger">Name is Required.</p>
-
-
-
-          </div>
-         
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Age</label>
-            <input type="text" class="form-control" formControlName="age" id="exampleInputAge">
-
-            <p *ngIf="getControl.age.errors && (getControl.age.dirty || getControl.age.touched)&& getControl.age.errors.required" class="text-danger">Age is Required.</p>
-
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Address</label>
-            <input type="text" class="form-control" formControlName="address" id="exampleInputAddress">
-
-            <p *ngIf="getControl.address.errors && (getControl.address.dirty || getControl.address.touched)&& getControl.address.errors.required" class="text-danger">Address is Required.</p>
-
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Phone</label>
-            <input type="text" class="form-control" formControlName="phone" id="exampleInputPhone">
-
-            <p *ngIf="getControl.phone.errors && (getControl.phone.dirty || getControl.phone.touched)&& getControl.phone.errors.required" class="text-danger">Phone is Required.</p>
-
-          </div>
-
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="addEmployee()" [disabled]="!addEmployeeForm.valid" data-bs-dismiss="modal" aria-label="Close">Add</button>
-      </div>
-    </div>
-  </div>
-</div>
